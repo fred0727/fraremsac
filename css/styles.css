@@ -101,6 +101,9 @@
     footer h1{
         font-size: 1rem;
     }
+    .card-products{
+        width: 100% !important;
+    }    
 
 }
 
@@ -193,13 +196,9 @@ footer h1{
     font-size: 1rem;
 }
 
-.card-products{
-    max-width: 600px;
-}
-
 .img-products{
     width: 500px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 /* .contenedor::-webkit-scrollbar {
