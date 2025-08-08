@@ -1,285 +1,481 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Frarem </title>
+  <title>Frarem S.A.C - Llantas y Aros Industriales</title>
+  <meta name="description" content="Especialistas en llantas y aros industriales para montacargas. Llantas sólidas, neumáticas y macizas POB de las mejores marcas.">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
-  <header class="container-fluid w-100 bg-white shadow-lg d-flex justify-content-center align-items-center p-2" id="inicio">
-    <nav class="container navbar navbar-expand-lg ps-3 ps-lg-0">
-      <a class="navbar-brand col-xl-6 col fs-1 d-flex justify-content-start align-items-center text-dark"
-        href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-exclude me-2" viewBox="0 0 16 16">
-          <path d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm12 2H5a1 1 0 0 0-1 1v7h7a1 1 0 0 0 1-1V4z" />
-        </svg>
-        Frarem</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Navbar moderna y responsive -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">
+        <div class="d-flex align-items-center">
+          <div class="logo-container me-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-gear-wide-connected text-warning" viewBox="0 0 16 16">
+              <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434L8.932 15.273c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622L.068 9.068c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622L.577 5.306c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186L2.9 2.503c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434L6.411.797zM8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="brand-name fw-bold">FRAREM</span>
+            <small class="brand-subtitle d-block">Rims & Tyres</small>
+          </div>
+        </div>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse col-lg-3" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-start fs-5">
-          <li class="nav-item pe-lg-4">
-            <a class="nav-link active fs-5" aria-current="page" href="#iniciopage">Inicio</a>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#inicio">Inicio</a>
           </li>
-          <li class="nav-item pe-lg-4 fs-5">
+          <li class="nav-item">
             <a class="nav-link" href="#productos">Productos</a>
           </li>
-          <li class="nav-item pe-lg-4 fs-5">
+          <li class="nav-item">
             <a class="nav-link" href="#nosotros">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="#contact-form">Contacto</a>
+            <a class="nav-link" href="#contacto">Contacto</a>
           </li>
         </ul>
-        <div class="justify-content-lg-end ms-xl-4">
-          <a href="#contact-form" class="btn btn-warning shadow-sm btn-lg me-sm-3 me-xl-4 shadow-sm fs-6">Contactanos</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!-- <section class="header-hide"></section> -->
-  <div id="iniciopage" class="h-10-div"></div>
-  <div class="carousel slide carou-slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active position-relative">
-        <div class="text-carousel containercol-lg-12">
-          <h1>Llantas y aros <br> industriales</h1>
-          <a href="#productos" class="text-decoration-none text-warning"><button class="btn btn-outline-warning shadow-sm btn-lg pe-lg-4 ps-lg-4 pe-md-3 ps-md-3 shadow-sm fs-5 mt-4">Ver Productos</button></a>
-        </div>
-        <img src="./img/portadafraremsac.png" class="d-block w-100 img-slider" alt="...">
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid d-none d-md-none d-lg-block brands">
-    <div class="container-fluid p-2 p-lg-5 w-100">
-      <div class="w-100 mb-5 mt-5 d-flex justify-content-between align-items-center overflow-scroll brands-img">
-        <img src="./img/logos/googyear.png" alt="" width="250" height="65" class="rounded-1 me-5">
-        <img src="./img/logos/bridgestone.png" alt="" width="250" height="45" class="rounded-1 me-5">
-        <img src="./img/logos/dunlop.png" alt="" width="250" height="65" class="rounded-1 me-5 me-5">
-        <img src="./img/logos/firelli.png" alt="" width="200" height="50" class="rounded-1 me-5">
-        <img src="./img/logos/kumhotire.png" alt="" width="250" height="70" class="rounded-1 me-5">
-        <img src="./img/logos/roadstone.png" alt="" width="320" height="50" class="rounded-1 me-5">
-        <img src="./img/logos/yokohama.png" alt="" width="250" height="50" class="rounded-1 me-5">
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid d-lg-none d-md-block brands">
-    <div class="container-fluid p-2 p-lg-5 w-100">
-      <div class="w-100 mb-5 mt-5 d-flex justify-content-between align-items-center overflow-scroll brands-img">
-        <img src="./img/logos/googyear.png" alt="" width="150" height="40" class="rounded-1 me-5">
-        <img src="./img/logos/bridgestone.png" alt="" width="140" height="30" class="rounded-1 me-5">
-        <img src="./img/logos/dunlop.png" alt="" width="150" height="40" class="rounded-1 me-5 me-5">
-        <img src="./img/logos/firelli.png" alt="" width="145" height="40" class="rounded-1 me-5">
-        <img src="./img/logos/kumhotire.png" alt="" width="160" height="50" class="rounded-1 me-5">
-        <img src="./img/logos/roadstone.png" alt="" width="200" height="25" class="rounded-1 me-5">
-        <img src="./img/logos/yokohama.png" alt="" width="160" height="35" class="rounded-1 me-5">
-      </div>
-    </div>
-  </div>
-  <div id="productos" class="h-10-div"></div>
-  <div class="container-fluid mb-5">
-    <div class="container col-lg-12 p-3 p-lg-5 justify-content-start">
-      <h1 class="pt-5 title-product">NUESTROS PRODUCTOS <br>
-        <hr class="hr-title">
-      </h1>
-      <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <div class="col-md-12 col-md-12 col-lg-6 p-2">
-          <div class="card card-hover border-0 bg-transparent">
-            <div class="position-relative mt-5">
-              <img src="./img/portadallantaimg.jpg" class="rounded-1 w-100 img-products" height="450" alt="Ralph Edwards">
-              <div
-                class="card-img-overlay d-flex flex-column align-items-start justify-content-start rounded-1 card-text-img pt-4 ps-4 card-over fs-2 card-overp">
-                <h1 class="text-white fs-2 fw-bolder">Llantas y aros industriales</h1>
-                <p class="fs-5">Contamos con amplia experiencia en brindar Llantas para todo tipo de montacargas asi
-                  como los aros industriales utilizados por los distintos tipos y marcas de los mismos.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-6 p-2">
-          <div class="card card-hover border-0 bg-transparent">
-            <div class="position-relative mt-5">
-              <img src="./img/llantasolida.webp" class="rounded-1 w-100 img-products" height="450" alt="Ralph Edwards">
-              <div
-                class="card-img-overlay d-flex flex-column align-items-start justify-content-start rounded-1 card-text-img pt-4 ps-4 card-over fs-2 card-overp">
-                <h1 class="text-white fs-2 fw-bolder">Llantas solidas</h1>
-                <p class="fs-5">Llantas solidas especiales para montacargas. <br> Llantas de dos y tres capas de caucho
-                  preparadas para las distintas rutinas de trabajo propias de los montacargas</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-6 p-2">
-          <div class="card card-hover border-0 bg-transparent">
-            <div class="position-relative mt-5">
-              <img src="./img/llantasneumaticas.jpg" class="rounded-1 w-100 img-products" height="450" alt="Ralph Edwards">
-              <div
-                class="card-img-overlay d-flex flex-column align-items-start justify-content-start rounded-1 card-text-img pt-4 ps-4 card-over fs-2 card-overp">
-                <h1 class="text-white fs-2 fw-bolder">Llantas neumaticas</h1>
-                <p class="fs-5">Llantas neumaticas de construccion diagonal y radial preparados para los mas exigentes
-                  terrenos de trabajo.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-6 p-2">
-          <div class="card card-hover border-0 bg-transparent">
-            <div class="position-relative mt-5">
-              <img src="./img/llantasmacizas.jpg" class="rounded-1 w-100 img-products" height="450" alt="Ralph Edwards">
-              <div
-                class="card-img-overlay d-flex flex-column align-items-start justify-content-start rounded-1 card-text-img pt-4 ps-4 card-over fs-2 card-overp">
-                <h1 class="text-white fs-2 fw-bolder">Llantas macizas POB</h1>
-                <p class="fs-5">Llantas Macizas POB especiales para montacargas conteineros y de perfil bajo para dos o
-                  tres turnos de trabajo y en todas las medidas existentes.</p>
-              </div>
-            </div>
-          </div>
+        <div class="d-flex">
+          <a href="#contacto" class="btn btn-warning btn-sm px-4 fw-semibold">Contactar</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="h-10-div" id="nosotros"></div>
-  <div class="container-fluid pb-5 pt-5">
-    <div class="container col-lg-12 p-lg-3 p-xl-5 justify-content-start">
-      <h1 class="pt-0 title-product">NOSOTROS <br>
-        <hr class="hr-title-2">
-        <div class="d-flex justify-content-start align-items-start mt-5 flex-wrap">
-          <div
-            class="container d-flex justify-content-lg-center align-items-lg-center p-2 d-none d-lg-flex col-lg-6 col-md-12">
-            <img src="./img/equipo.jpg" alt="" class="rounded-2 shadow-lg w-auto img-fluid">
-          </div>
-          <div class="p-lg-5 pt-5 pt-md-0 pt-lg-0 d-flex justify-content-center align-items-center flex-column col-lg-6 col-md-12 p-3">
-            <h2 class="mb-4 d-flex justify-content-start align-items-start w-100 text-enterprise">Frarem rims and tyres
-            </h2>
-            <p class="p-nosotros">
-              Somos una empresa joven que nace por la necesidad del mercado de contar con verdaderos especialistas en
-              llantas que puedan determinar de forma independiente cual es la solucion que se adapte de manera economica
-              y rentable al transporte en general.
+  </nav>
+  
+  <!-- Hero Section Moderno -->
+  <section id="inicio" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              <span class="text-warning">Especialistas</span> en
+              <span class="highlight">Llantas y Aros Industriales</span>
+            </h1>
+            <p class="hero-subtitle">
+              Soluciones profesionales para montacargas con la mejor calidad y servicio especializado. 
+              Más de 15 años de experiencia respaldándonos.
             </p>
-            <p class="p-nosotros">
-              Sin necesidad de ser direccionados por una marca en especial ya que no comercializamos ningun tipo de
-              llanta, para dicho fin contamos con la verdadera capacidad de proporcionarles soluciones en donde otros no
-              las encuentran, nos respaldan colaboiradores que tienen años de experiencia y amplios conocimientos en
-              todos los tipos de
-              llantas pero orientados principalmente a buscar el beneficio de su empresa sin importar la marca de
-              neumaticos que use.
-            </p>
-            <div class="container m-0 p-0 d-flex justify-content-start align-items-center mt-3">
-              <!-- <h1 class="fs-5 text-danger">Redes Sociales:</h1> &nbsp;&nbsp; -->
-              <button type="button"
-                class="btn btn-outline-primary d-flex justify-content-center align-items-center"><svg
-                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                </svg> &nbsp; Facebook</button> &nbsp; &nbsp;
-              <button type="button"
-                class="btn btn-outline-success d-flex justify-content-center align-items-center"><svg
-                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-                </svg> &nbsp; Whatsapp</button>
-              <!-- <a href="#" class=""><img src="./img/iconos/facebookicon.png" alt="" width="42" height="42"></a> -->
-              <!-- <a href="#"><img src="./img/iconos/whatsapp.png" alt="" width="42" height="42"></a> -->
+            <div class="hero-buttons">
+              <a href="#productos" class="btn btn-warning btn-lg me-3">
+                <i class="bi bi-eye me-2"></i>Ver Productos
+              </a>
+              <a href="#contacto" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-telephone me-2"></i>Contactar
+              </a>
             </div>
           </div>
         </div>
-      </h1>
+        <!-- <div class="col-lg-6 text-center">
+          <div class="hero-image">
+            <img src="./img/portadafraremsac.png" alt="Llantas Industriales Frarem" class="img-fluid">
+          </div>
+        </div> -->
+      </div>
     </div>
-  </div>
-  <div class="h-10-div" id="contact-form"></div>
-  <div class="contact-form p-xl-5">
-    <div class="container-fluid d-flex justify-content-between p-5 pt-0 flex-wrap">
-      <div class="container col-md-12 col-lg-7 p-1 p-sm-1 p-md-2 p-lg-5 p-xl-5 pt-xl-0 pt-lg-0">
-        <h1 class="title-product">Contactanos <br>
-          <hr class="hr-title">
-        </h1>
-        <div class="pt-4">
-          <h4 class="fs-5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-envelope-fill text-danger" viewBox="0 0 16 16">
-              <path
-                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
-            </svg>&nbsp;&nbsp;ventasllantas@fraremsac.com
-          </h4>
-          <h4 class="fs-5 mt-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-envelope-fill text-danger" viewBox="0 0 16 16">
-              <path
-                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
-            </svg>&nbsp;&nbsp;ventasllantas@fraremsac.com
-          </h4>
-          <h4 class="fs-5 mb-5 mt-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-telephone-fill text-danger" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-            </svg>&nbsp;&nbsp;+51 956792456
-          </h4>
-          <h4 class="fs-5 pb-2 d-flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-              class="bi bi-geo-alt-fill text-danger" viewBox="0 0 16 16">
-              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-            </svg>&nbsp;Panamericana Sur Km. 275
-          </h4>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249744.72072813608!2d-77.12786398622103!3d-12.025526180006032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81e30b6695f%3A0x1015ccad533f5be5!2sParque%20John%20F.%20Kennedy!5e0!3m2!1ses!2spe!4v1668217525966!5m2!1ses!2spe"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" class="iframe"></iframe>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+  
+  <!-- Sección de Marcas -->
+  <section class="brands-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h3 class="section-subtitle">Trabajamos con las mejores marcas</h3>
         </div>
       </div>
-      <div class="container col-md-12 col-lg-5 bg-white p-5 rounded-2 shadow-lg mb-md-5 mt-5 mt-md-5 mt-ml-0 mt-xl-0">
-        <form class="needs-validation" novalidate="" action="email.php" method="POST" id="form-contact">
-          <div class="row g-3">
-            <h3>Contactate con nosotros</h3>
-            <div class="col-sm-12">
-              <label for="nombre" class="form-label">Nombres &nbsp;<label class="text-danger fs-5">*</label></label>
-              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus datos" value="">
-            </div>
-
-            <div class="col-12">
-              <label for="email" class="form-label">Email &nbsp;<label class="text-danger fs-5">*</label></label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo">
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="celular" class="form-label">Celular &nbsp;<label class="text-danger fs-5">*</label></label>
-              <div class="input-group has-validation">
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="Ingrese su numero de contacto">
-              </div>
-            </div>
-
-            <div class="col-12 mb-3">
-              <label for="asunto" class="form-label">Asunto &nbsp;<label class="text-danger fs-5">*</label></label>
-              <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto">
-            </div>
-            <div class="form-floating">
-              <textarea class="form-control h-100" placeholder="Leave a comment here" id="mensaje" name="mensaje"></textarea>
-              <label for="mensaje" class="ps-4">Mensaje</label>
-            </div>
-
-            <div class="col-12 mb-3">
-              <button class="w-100 btn btn-danger btn-lg" type="submit" id="btnEnviar">Enviar</button>
-            </div>
-            <label for="mensaje" class="text-danger fs-6">Complete todos los campos (*)</label>
-            </div>
-        </form>
+      <div class="brands-carousel">
+        <div class="brand-item">
+          <img src="./img/logos/googyear.png" alt="Goodyear" class="brand-logo">
+        </div>
+        <div class="brand-item">
+          <img src="./img/logos/bridgestone.png" alt="Bridgestone" class="brand-logo">
+        </div>
+        <div class="brand-item">
+          <img src="./img/logos/dunlop.png" alt="Dunlop" class="brand-logo">
+        </div>
+        <div class="brand-item">
+          <img src="./img/logos/firelli.png" alt="Pirelli" class="brand-logo">
+        </div>
+        <div class="brand-item">
+          <img src="./img/logos/kumhotire.png" alt="Kumho Tire" class="brand-logo">
+        </div>
+        <div class="brand-item">
+          <img src="./img/logos/roadstone.png" alt="Roadstone" class="brand-logo">
+        </div>
+        <div class="brand-item">
+          <img src="./img/logos/yokohama.png" alt="Yokohama" class="brand-logo">
+        </div>
       </div>
     </div>
-  </div>
-  <footer class="container-fluid d-flex justify-content-center align-items-center">
-    <h1 class="">Copyright © 2022 Todos los derechos reservados por Frarem S.A.C</h1>
+  </section>
+  
+  <!-- Sección de Productos -->
+  <section id="productos" class="products-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <h2 class="section-title">Nuestros Productos</h2>
+          <p class="section-description">Soluciones especializadas para cada tipo de montacargas y aplicación industrial</p>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Producto 1 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="product-card h-100">
+            <div class="product-image-container">
+              <img src="./img/portadallantaimg.jpg" alt="Llantas y aros industriales" class="product-image">
+              <div class="product-overlay">
+                <div class="product-content">
+                  <h3 class="product-title">Llantas y Aros Industriales</h3>
+                  <p class="product-description">
+                    Amplia experiencia en llantas para todo tipo de montacargas así como los aros industriales 
+                    utilizados por las distintas marcas.
+                  </p>
+                  <a href="#contacto" class="btn btn-warning">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Producto 2 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="product-card h-100">
+            <div class="product-image-container">
+              <img src="./img/llantasolida.webp" alt="Llantas sólidas" class="product-image">
+              <div class="product-overlay">
+                <div class="product-content">
+                  <h3 class="product-title">Llantas Sólidas</h3>
+                  <p class="product-description">
+                    Llantas sólidas especiales para montacargas. De dos y tres capas de caucho preparadas 
+                    para las distintas rutinas de trabajo.
+                  </p>
+                  <a href="#contacto" class="btn btn-warning">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Producto 3 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="product-card h-100">
+            <div class="product-image-container">
+              <img src="./img/llantasneumaticas.jpg" alt="Llantas neumáticas" class="product-image">
+              <div class="product-overlay">
+                <div class="product-content">
+                  <h3 class="product-title">Llantas Neumáticas</h3>
+                  <p class="product-description">
+                    Llantas neumáticas de construcción diagonal y radial preparados para los más 
+                    exigentes terrenos de trabajo.
+                  </p>
+                  <a href="#contacto" class="btn btn-warning">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Producto 4 -->
+        <div class="col-lg-6 col-md-6">
+          <div class="product-card h-100">
+            <div class="product-image-container">
+              <img src="./img/llantasmacizas.jpg" alt="Llantas macizas POB" class="product-image">
+              <div class="product-overlay">
+                <div class="product-content">
+                  <h3 class="product-title">Llantas Macizas POB</h3>
+                  <p class="product-description">
+                    Llantas macizas POB especiales para montacargas contenedores y de perfil bajo 
+                    para dos o tres turnos de trabajo.
+                  </p>
+                  <a href="#contacto" class="btn btn-warning">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sección Nosotros -->
+  <section id="nosotros" class="about-section py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="about-image">
+            <img src="./img/equipo.jpg" alt="Equipo Frarem" class="img-fluid rounded shadow-lg">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-content">
+            <h2 class="section-title mb-4">Frarem Rims and Tyres</h2>
+            <p class="about-text">
+              Somos una empresa joven que nace por la necesidad del mercado de contar con verdaderos 
+              especialistas en llantas que puedan determinar de forma independiente cuál es la solución 
+              que se adapte de manera económica y rentable al transporte en general.
+            </p>
+            <p class="about-text">
+              Sin necesidad de ser direccionados por una marca en especial ya que no comercializamos 
+              ningún tipo de llanta, para dicho fin contamos con la verdadera capacidad de proporcionarles 
+              soluciones donde otros no las encuentran. Nos respaldan colaboradores que tienen años de 
+              experiencia y amplios conocimientos en todos los tipos de llantas, orientados principalmente 
+              a buscar el beneficio de su empresa sin importar la marca de neumáticos que use.
+            </p>
+            
+            <!-- Estadísticas -->
+            <div class="row mt-4">
+              <div class="col-6 col-md-3 text-center mb-3">
+                <div class="stat-item">
+                  <h3 class="stat-number text-warning">15+</h3>
+                  <p class="stat-label">Años de experiencia</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-3">
+                <div class="stat-item">
+                  <h3 class="stat-number text-warning">500+</h3>
+                  <p class="stat-label">Clientes satisfechos</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-3">
+                <div class="stat-item">
+                  <h3 class="stat-number text-warning">7</h3>
+                  <p class="stat-label">Marcas principales</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-3">
+                <div class="stat-item">
+                  <h3 class="stat-number text-warning">24/7</h3>
+                  <p class="stat-label">Atención al cliente</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botones de redes sociales -->
+            <div class="social-buttons mt-4">
+              <a href="#" class="btn btn-outline-primary me-3">
+                <i class="bi bi-facebook me-2"></i>Facebook
+              </a>
+              <a href="https://wa.me/51956792456" class="btn btn-outline-success" target="_blank">
+                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sección de Contacto -->
+  <section id="contacto" class="contact-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <h2 class="section-title">Contáctanos</h2>
+          <p class="section-description">Estamos aquí para ayudarte con tus necesidades de llantas industriales</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <!-- Información de contacto -->
+        <div class="col-lg-6 mb-4">
+          <div class="contact-info">
+            <div class="contact-item mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div>
+                  <h5>Email</h5>
+                  <p class="mb-0">ventasllantas@fraremsac.com</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-item mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div>
+                  <h5>Teléfono</h5>
+                  <p class="mb-0">+51 956 792 456</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-item mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="contact-icon me-3">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div>
+                  <h5>Ubicación</h5>
+                  <p class="mb-0">Panamericana Sur Km. 275</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Mapa -->
+            <div class="map-container mt-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249744.72072813608!2d-77.12786398622103!3d-12.025526180006032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81e30b6695f%3A0x1015ccad533f5be5!2sParque%20John%20F.%20Kennedy!5e0!3m2!1ses!2spe!4v1668217525966!5m2!1ses!2spe"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" class="rounded shadow-sm"></iframe>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Formulario de contacto -->
+        <div class="col-lg-6">
+          <div class="contact-form-container">
+            <form class="contact-form" action="email.php" method="POST" id="form-contact">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <label for="nombre" class="form-label">Nombre completo *</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="col-12 mb-3">
+                  <label for="email" class="form-label">Correo electrónico *</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                
+                <div class="col-12 mb-3">
+                  <label for="celular" class="form-label">Teléfono *</label>
+                  <input type="tel" class="form-control" id="celular" name="celular" required>
+                </div>
+                
+                <div class="col-12 mb-3">
+                  <label for="asunto" class="form-label">Asunto *</label>
+                  <input type="text" class="form-control" id="asunto" name="asunto" required>
+                </div>
+                
+                <div class="col-12 mb-3">
+                  <label for="mensaje" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Describe tu consulta o necesidad..."></textarea>
+                </div>
+                
+                <div class="col-12">
+                  <button type="submit" class="btn btn-warning btn-lg w-100" id="btnEnviar">
+                    <i class="bi bi-send me-2"></i>Enviar mensaje
+                  </button>
+                  <small class="text-muted mt-2 d-block">Los campos marcados con (*) son obligatorios</small>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-brand">
+            <h5 class="mb-3">FRAREM S.A.C</h5>
+            <p class="text-muted mb-3">
+              Especialistas en llantas y aros industriales para montacargas. 
+              Más de 15 años brindando soluciones profesionales y confiables.
+            </p>
+            <div class="footer-contact-info">
+              <div class="footer-contact-item">
+                <i class="bi bi-envelope-fill"></i>
+                <span>ventasllantas@fraremsac.com</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="bi bi-telephone-fill"></i>
+                <span>+51 956 792 456</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Panamericana Sur Km. 275</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="text-warning mb-3">Enlaces</h6>
+          <div class="footer-links d-flex flex-column">
+            <a href="#inicio" class="mb-2">Inicio</a>
+            <a href="#productos" class="mb-2">Productos</a>
+            <a href="#nosotros" class="mb-2">Nosotros</a>
+            <a href="#contacto" class="mb-2">Contacto</a>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="text-warning mb-3">Nuestros Productos</h6>
+          <div class="d-flex flex-column">
+            <small class="text-muted mb-2">• Llantas y Aros Industriales</small>
+            <small class="text-muted mb-2">• Llantas Sólidas</small>
+            <small class="text-muted mb-2">• Llantas Neumáticas</small>
+            <small class="text-muted mb-2">• Llantas Macizas POB</small>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="text-warning mb-3">Síguenos</h6>
+          <div class="social-links d-flex justify-content-start">
+            <a href="#" class="social-link me-3">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://wa.me/51956792456" class="social-link" target="_blank">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+          </div>
+          <div class="mt-3">
+            <small class="text-muted">
+              Horarios de atención:<br>
+              Lunes a Viernes: 8:00 AM - 6:00 PM<br>
+              Sábados: 8:00 AM - 1:00 PM
+            </small>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Separador y copyright -->
+      <div class="footer-info">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="copyright mb-0">© 2024 Frarem S.A.C. Todos los derechos reservados.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <small class="text-muted">Diseñado con ❤️ para la industria peruana</small>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
