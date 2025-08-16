@@ -242,19 +242,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funcionalidad de WhatsApp
 function openWhatsApp() {
-    const phoneNumber = '51956792456';
+    const phoneNumber = '51924999999';
     const message = 'Hola, me interesa conocer más sobre sus llantas industriales.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 }
 
 // Agregar eventos a botones de WhatsApp
 document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar/ocultar botón flotante según scroll
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    if (whatsappFloat) {
+        // Función para mostrar/ocultar el botón según el scroll
+        function toggleWhatsAppButton() {
+            if (window.scrollY > 300) {
+                whatsappFloat.style.opacity = '1';
+                whatsappFloat.style.visibility = 'visible';
+                whatsappFloat.style.transform = 'scale(1)';
+            } else {
+                whatsappFloat.style.opacity = '0';
+                whatsappFloat.style.visibility = 'hidden';
+                whatsappFloat.style.transform = 'scale(0.8)';
+            }
+        }
+
+        // Aplicar estilos iniciales
+        whatsappFloat.style.transition = 'opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease';
+        whatsappFloat.style.opacity = '0';
+        whatsappFloat.style.visibility = 'hidden';
+        whatsappFloat.style.transform = 'scale(0.8)';
+
+        // Agregar el evento de scroll
+        window.addEventListener('scroll', toggleWhatsAppButton);
+        
+        // Verificar posición inicial
+        toggleWhatsAppButton();
+
+        // Agregar evento click específico para el botón flotante
+        const whatsappButton = whatsappFloat.querySelector('.whatsapp-button');
+        if (whatsappButton) {
+            whatsappButton.addEventListener('click', function(e) {
+                console.log('WhatsApp flotante clickeado');
+                // El enlace ya tiene href, así que no necesitamos prevenir el default
+                // Solo agregamos tracking si es necesario
+            });
+        }
+    }
+
+    // Manejar otros botones de WhatsApp que no tienen href directo
     const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
     whatsappButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault();
-            openWhatsApp();
+            // Si el botón no tiene un href válido, usar la función openWhatsApp
+            if (!this.href || this.href === '#') {
+                e.preventDefault();
+                openWhatsApp();
+            }
+            // Si tiene href, dejar que el navegador maneje el click normalmente
         });
     });
 });
@@ -305,3 +349,136 @@ function debounce(func, wait) {
 const debouncedScrollHandler = debounce(function() {
     // Aquí puedes agregar lógica adicional de scroll si es necesaria
 }, 10);
+
+// Slider de marcas
+function initBrandsSlider() {
+    const slider = document.getElementById('brandsSlider');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    if (!slider) return;
+    
+    let currentSlide = 0;
+    const totalSlides = 7; // Total de marcas originales
+    let slideWidth = 220; // width + margin por defecto
+    let isAutoPlay = true;
+    let autoPlayInterval;
+    
+    // Función para ajustar el ancho del slide según el tamaño de pantalla
+    function adjustSlideWidth() {
+        if (window.innerWidth <= 480) {
+            slideWidth = 130; // Para móviles (120px + 10px margin)
+        } else if (window.innerWidth <= 768) {
+            slideWidth = 166; // Para tablets (150px + 16px margin)
+        } else {
+            slideWidth = 220; // Para desktop (200px + 20px margin)
+        }
+    }
+    
+    // Función para ir a un slide específico
+    function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        const translateX = -currentSlide * slideWidth;
+        slider.style.transform = `translateX(${translateX}px)`;
+        
+        // Actualizar indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    // Función para ir al siguiente slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+    }
+    
+    // Event listeners para los indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+            pauseAutoPlay();
+        });
+    });
+    
+    // AutoPlay con velocidad más lenta
+    function startAutoPlay() {
+        if (isAutoPlay) {
+            autoPlayInterval = setInterval(nextSlide, 6000); // Cambiar cada 6 segundos (más lento)
+        }
+    }
+    
+    function pauseAutoPlay() {
+        clearInterval(autoPlayInterval);
+        isAutoPlay = false;
+        setTimeout(() => {
+            isAutoPlay = true;
+            startAutoPlay();
+        }, 10000); // Reanudar después de 10 segundos
+    }
+    
+    // Pausar autoplay al hacer hover sobre el slider
+    slider.addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+        if (isAutoPlay) {
+            startAutoPlay();
+        }
+    });
+    
+    // Manejar cambio de tamaño de ventana
+    window.addEventListener('resize', () => {
+        adjustSlideWidth();
+        goToSlide(currentSlide); // Reajustar posición
+    });
+    
+    // Inicializar
+    adjustSlideWidth();
+    goToSlide(0);
+    
+    // Iniciar autoplay después de un pequeño delay
+    setTimeout(() => {
+        startAutoPlay();
+    }, 3000); // Esperar 3 segundos antes de iniciar
+    
+    // Soporte para gestos táctiles en dispositivos móviles
+    let startX = 0;
+    let endX = 0;
+    
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    slider.addEventListener('touchmove', (e) => {
+        e.preventDefault(); // Prevenir scroll
+    });
+    
+    slider.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe izquierda - siguiente
+                nextSlide();
+            } else {
+                // Swipe derecha - anterior
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(currentSlide);
+            }
+            pauseAutoPlay();
+        }
+    }
+}
+
+// Inicializar el slider cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    // Esperar un poco para asegurar que todos los elementos estén renderizados
+    setTimeout(initBrandsSlider, 100);
+});

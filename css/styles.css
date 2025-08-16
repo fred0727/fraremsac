@@ -230,37 +230,159 @@ body {
   }
 }
 
-/* Sección de marcas */
+/* Sección de marcas con slider */
 .brands-section {
-  background: var(--light-bg);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.brands-carousel {
+.brands-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23000" opacity="0.03"/></svg>') repeat;
+  background-size: 50px 50px;
+}
+
+.brands-slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  /* background: rgba(255, 255, 255, 0.9); */
+  /* backdrop-filter: blur(10px); */
+  /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); */
+  padding: 20px 0;
+}
+
+.brands-slider {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.brand-slide {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 120px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 10px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.brand-item {
-  flex: 1;
-  min-width: 150px;
-  text-align: center;
+.brand-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.brand-slide:hover::before {
+  transform: translateX(100%);
+}
+
+.brand-slide:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .brand-logo {
   max-width: 100%;
-  height: 60px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  filter: grayscale(100%);
-  transition: var(--transition);
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
 }
 
-.brand-logo:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05);
+.brand-slide:hover .brand-logo {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
 }
+
+/* Indicadores */
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.indicator.active {
+  background: var(--warning-color);
+  transform: scale(1.2);
+}
+
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--warning-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.indicator.active::after {
+  opacity: 0.3;
+}
+
+/* Animación de carga para las marcas */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-slide {
+  animation: slideInFromBottom 0.6s ease forwards;
+}
+
+.brand-slide:nth-child(1) { animation-delay: 0.1s; }
+.brand-slide:nth-child(2) { animation-delay: 0.2s; }
+.brand-slide:nth-child(3) { animation-delay: 0.3s; }
+.brand-slide:nth-child(4) { animation-delay: 0.4s; }
+.brand-slide:nth-child(5) { animation-delay: 0.5s; }
+.brand-slide:nth-child(6) { animation-delay: 0.6s; }
+.brand-slide:nth-child(7) { animation-delay: 0.7s; }
 
 /* Sección de productos */
 .products-section {
@@ -776,6 +898,72 @@ body {
     padding: 1.5rem;
   }
   
+  /* About section responsive */
+  .about-subtitle {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .about-subtitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .about-features {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  
+  /* Slider de marcas responsive */
+  .brands-slider-container {
+    margin: 0 20px;
+  }
+  
+  .brand-slide {
+    width: 150px;
+    height: 100px;
+    margin: 0 8px;
+    padding: 15px;
+  }
+  
+  .brand-logo {
+    max-height: 60px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .stats-container {
+    padding: 2rem 1rem;
+  }
+  
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .value-card {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .value-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+  
+  .about-cta {
+    padding: 2rem 1.5rem;
+  }
+  
+  .about-cta h4 {
+    font-size: 1.5rem;
+  }
+  
   /* Footer responsive */
   .footer-links {
     justify-content: flex-start;
@@ -878,6 +1066,64 @@ body {
     padding: 1.5rem 0.5rem 0 0.5rem;
   }
   
+  .about-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .about-features {
+    padding: 0.8rem;
+  }
+  
+  .feature-item {
+    font-size: 0.9rem;
+  }
+  
+  .stats-container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .stat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .value-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .value-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .value-card h4 {
+    font-size: 1.2rem;
+  }
+  
+  .about-cta {
+    padding: 1.5rem 1rem;
+  }
+  
+  .about-cta h4 {
+    font-size: 1.3rem;
+  }
+  
+  .about-cta .social-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .about-cta .social-buttons .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  
   .about-text {
     padding: 0;
     font-size: 1rem;
@@ -893,7 +1139,7 @@ body {
     font-size: 1rem;
   }
   
-  /* Footer extra responsive */
+  /* Contact responsive */
   .footer {
     padding: 1.5rem 0 1rem 0;
   }
@@ -1007,6 +1253,419 @@ body {
     padding: 0.8rem 1rem !important;
     text-align: center;
   }
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: float 3s ease-in-out infinite;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366, #20BA5A);
+  border-radius: 50%;
+  color: white !important;
+  text-decoration: none !important;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.whatsapp-button:hover,
+.whatsapp-button:focus,
+.whatsapp-button:active {
+  color: white !important;
+  text-decoration: none !important;
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-button:hover::before {
+  opacity: 1;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark-bg);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-left-color: var(--dark-bg);
+}
+
+.whatsapp-button:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 75px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1); }
+}
+
+/* Pulso para llamar la atención */
+.whatsapp-float::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0;
+  animation: pulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Asegurar que el botón esté por encima de todo */
+.whatsapp-float {
+  z-index: 9999 !important;
+}
+
+/* Responsive para el botón de WhatsApp */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 15px;
+  }
+  
+  .whatsapp-button {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+  
+  .whatsapp-tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 10px;
+  }
+  
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  
+  /* Slider de marcas para móviles */
+  .brands-slider-container {
+    margin: 0 10px;
+    padding: 15px 0;
+  }
+  
+  .brand-slide {
+    width: 120px;
+    height: 80px;
+    margin: 0 5px;
+    padding: 10px;
+  }
+  
+  .brand-logo {
+    max-height: 50px;
+  }
+  
+  .slider-indicators {
+    gap: 8px;
+    margin-top: 20px;
+  }
+}
+
+/* Sección Nosotros mejorada */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.05) 0%, rgba(248, 249, 250, 0.95) 100%);
+  z-index: 1;
+}
+
+.about-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.about-main-image {
+  transition: transform 0.5s ease;
+}
+
+.about-image-container:hover .about-main-image {
+  transform: scale(1.05);
+}
+
+.about-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(33, 37, 41, 0.8));
+  color: white;
+  padding: 2rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.about-image-container:hover .about-overlay {
+  transform: translateY(0);
+}
+
+.about-overlay-content h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.about-overlay-content p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.about-subtitle {
+  color: var(--secondary-color);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  position: relative;
+}
+
+.about-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.about-features {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.feature-item i {
+  font-size: 1.2rem;
+}
+
+.stats-container {
+  background: linear-gradient(135deg, var(--white) 0%, rgba(255, 193, 7, 0.1) 100%);
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: var(--transition);
+}
+
+.stat-item:hover .stat-icon {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.value-card {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), #f0ad00);
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), #f0ad00);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 2rem;
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+}
+
+.value-card h4 {
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.value-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-cta {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #343a40 100%);
+  color: var(--white);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,193,7,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,193,7,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,193,7,0.1)"/><circle cx="60" cy="30" r="1" fill="rgba(255,193,7,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.5;
+}
+
+.about-cta h4 {
+  color: var(--white);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta p {
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta .social-buttons {
+  position: relative;
+  z-index: 1;
 }
 
 /* Animaciones y efectos adicionales */
